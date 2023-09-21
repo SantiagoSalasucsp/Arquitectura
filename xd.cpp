@@ -59,7 +59,7 @@ void convbinario(float x){
 
     cout<<"vamos a ver"<<endl;
 
-    for(int m=4;m<0;m++){
+    for(int m=4;m>0;m++){
         cout<<ent[m];
     }
 
