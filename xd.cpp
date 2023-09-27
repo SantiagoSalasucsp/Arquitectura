@@ -3,11 +3,34 @@
 
 using namespace std;
 
+
+int elevadoa(int x,int y){
+
+    for(int k=x;y-1;y--){
+        x*=2;
+    }
+
+
+    return x;
+}
+
+
+void invertir(int *ini, int *fin){
+    while(ini<fin){
+        swap(*ini,*fin);
+        ini++;
+        fin--;
+    }
+}
+
+
 void convbinario(float x){
 
 
     vector<bool> vec;
-    vector<bool> ent;
+    //vector<bool> ent;
+
+    int ent[8]={0,0,0,0,0,0,0,0};
 
 
     float k=0;
@@ -30,8 +53,8 @@ void convbinario(float x){
         cout<<k/1<<endl;
         int p=(int)(k);
         bool l=(bool)(p);
-        cout<<"l es: "<<l<<endl;
-        cout<<"p es: "<<p<<endl;
+        //cout<<"l es: "<<l<<endl;
+        //cout<<"p es: "<<p<<endl;
         if(l){
             k--;
         }
@@ -59,9 +82,40 @@ void convbinario(float x){
 
     cout<<"vamos a ver"<<endl;
 
-    for(int m=4;m>0;m++){
-        cout<<ent[m];
+    while(y>0){
+        cout<<"Funciona? ";
+        if(y%2==1){
+            y--;
+            ent[0]=1;
+        }
+        int n=0;
+        int e=2;
+        while(y>=elevadoa(e,n)){
+            n++;
+
+        }
+        ent[n-1]=1;
+        y-=elevadoa(e,n-1);
     }
+
+
+
+    for(int *h=ent;h<ent+8;h++){
+        cout<<*h<<" ";
+    }
+    cout<<endl;
+    invertir(ent,ent+7);
+
+    for(int *h=ent;h<ent+8;h++){
+        cout<<*h<<" ";
+    }
+    cout<<" . ";
+
+    for(int m=0;m<4;m++){
+        cout<<vec[m];
+    }
+
+    
 
 
 
@@ -73,7 +127,7 @@ int main(){
 
     float x=2.375;
     convbinario(x);
-
+    
 
 
 
